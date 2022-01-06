@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-logfmt/logfmt"
+	"github.com/lai323/logfmt"
 )
 
 func ExampleEncoder() {
