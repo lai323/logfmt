@@ -21,6 +21,26 @@ func MarshalKeyvals(keyvals ...interface{}) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
+// MarshalKey alone returns the logfmt encoding of key
+func MarshalKey(key interface{}) ([]byte, error) {
+	buf := &bytes.Buffer{}
+	err := writeKey(buf, key)
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
+// MarshalKey alone returns the logfmt encoding of value
+func MarshalValue(value interface{}) ([]byte, error) {
+	buf := &bytes.Buffer{}
+	err := writeValue(buf, value)
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
 // An Encoder writes logfmt data to an output stream.
 type Encoder struct {
 	w       io.Writer
